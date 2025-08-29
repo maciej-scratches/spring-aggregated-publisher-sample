@@ -18,8 +18,8 @@ class MyService {
     
     @Transactional
     void doSomething() {
-        // some business logic
         publisher.withAggregatingEvents(() -> {
+            // some business logic
             publisher.publishEvent(new MyEvent(...));
             // some more business logic
             publisher.publishEvent(new MyEvent(...));
