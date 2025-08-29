@@ -1,4 +1,4 @@
 package com.example.application;
 
-public class AppLevelEvent {
+public record AppLevelEvent(String message) {
 }

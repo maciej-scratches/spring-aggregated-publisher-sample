@@ -1,5 +1,6 @@
 package com.example;
 
+import com.example.application.AppLevelEvent;
 import com.example.application.CreateReservationUseCase;
 import com.example.domain.ReservationCreated;
 import com.example.publisher.AggregatingEventPublisher;
@@ -26,6 +27,9 @@ class AppTests {
         transactionTemplate.executeWithoutResult(status -> {
             publisher.withAggregatingEvents(() -> {
                 createReservationUseCase.execute(10L);
+
+                publisher.publishEvent(new AppLevelEvent("App level event inside transaction"));
+
                 createReservationUseCase.execute(20L);
             });
         });
