@@ -19,9 +19,11 @@ class MyService {
     @Transactional
     void doSomething() {
         // some business logic
-        publisher.publishEvent(new MyEvent(...));
-        // some more business logic
-        publisher.publishEvent(new MyEvent(...));
+        publisher.withAggregatingEvents(() -> {
+            publisher.publishEvent(new MyEvent(...));
+            // some more business logic
+            publisher.publishEvent(new MyEvent(...));
+        });
     }
 }
 
