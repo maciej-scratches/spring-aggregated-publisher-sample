@@ -4,11 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AggregatedPublisherDemoApplication {
+public class App {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(AggregatedPublisherDemoApplication.class, args);
+        SpringApplication.run(App.class, args);
     }
-
 }
